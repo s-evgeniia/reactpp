@@ -1,0 +1,1 @@
+export const NAVIGATION = ['main', 'women', 'men', 'basket', 'news']

@@ -1,0 +1,90 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+/*Navigation Bar*/
+.navigation {
+    font-weight: bold;
+    border-bottom: teal solid 2px;
+    margin-bottom: 15px;
+    color: teal;
+}
+
+.navigation ul {
+    display: flex;
+    justify-content: space-around;
+
+    list-style: none;
+    width: auto;
+
+    margin: 15px;
+    padding: 0;
+}
+
+/*Item Card Style*/
+.item_card h3,
+.item_card p {
+    margin: 0;
+    text-align: center;
+}
+
+.item_card {
+    width: 120px;
+    height: auto;
+
+    padding: 10px;
+    margin: 0;
+
+    border: teal solid 2px;
+    border-radius: 5px;
+
+    display: grid;
+    gap: 5px;
+    justify-content: center;
+}
+
+/*Items List Style*/
+.items_list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/*Other components*/
+button {
+    border: teal solid 1px;
+    background-color: rgba(0, 128, 128, 0.15);
+}
+
+/*Modal*/
+.modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: none;
+    background: rgba(0,0,0,0.5)
+}
+
+.modal.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalContent {
+    padding: 25px;
+    background: white;
+    border-radius: 15px;
+
+    text-align: center;
+}
+
+.modalContent div {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: 20px;
+}
