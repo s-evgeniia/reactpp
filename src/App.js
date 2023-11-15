@@ -16,9 +16,16 @@ function App() {
         setModal(true)
     }
     const addToBasket = (item) => {
-        console.log(item)
-        setBasket([...basket, item])
-        console.log(basket)
+        const {title, count} = item;
+        let cond = basket.some(function (e){
+            return e.title == title
+        })
+        if (cond){
+            const findItem = basket.find(el => el.title === title)
+            findItem.count = findItem.count + count
+        }else {
+            setBasket([...basket, item])
+        }
     }
     const changePage = (id) => {
         switch (id) {

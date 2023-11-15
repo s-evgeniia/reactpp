@@ -2,7 +2,6 @@ import React from 'react';
 
 const ItemInBasket = ({item, title, description, url, count, price, onRemove}) => {
     const [counter, setCounter] = React.useState(count)
-
     return (
         <div className="basketItem">
             <img src={url} width="90px" height="110px" alt={description}/>
