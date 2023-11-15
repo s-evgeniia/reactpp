@@ -1,8 +1,7 @@
 import React from 'react';
 import ItemCard from "./ItemCard";
-import ItemPage from "./ItemPage";
 
-const ItemsList = ({items, onShowItem}) => {
+const ItemsList = ({items, onShowItem, onBuyClick}) => {
 
     return (
         <div>
@@ -15,6 +14,7 @@ const ItemsList = ({items, onShowItem}) => {
                     price={item.price}
                     onShowItem={onShowItem}
                     item={item}
+                    onBuyClick={onBuyClick}
                 />))}
             </div>
 

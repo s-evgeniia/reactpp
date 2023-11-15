@@ -19,6 +19,8 @@ body {
 
     margin: 15px;
     padding: 0;
+
+    cursor: pointer;
 }
 
 /*Item Card Style*/
@@ -55,6 +57,8 @@ body {
 button {
     border: teal solid 1px;
     background-color: rgba(0, 128, 128, 0.15);
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 /*Modal*/
@@ -64,6 +68,7 @@ button {
     bottom: 0;
     right: 0;
     left: 0;
+
     display: none;
     background: rgba(0,0,0,0.5)
 }
@@ -71,6 +76,7 @@ button {
 .modal.active {
     display: flex;
     justify-content: center;
+
     align-items: center;
 }
 
@@ -86,5 +92,46 @@ button {
     display: flex;
     justify-content: center;
     gap: 4px;
+
     margin-bottom: 20px;
+}
+
+/*Basket Item*/
+.basketItem {
+    border: teal solid 2px;
+    border-radius: 5px;
+
+    width: 500px;
+    margin: 5px;
+
+    display: flex;
+    justify-content: space-around;
+}
+
+.counter {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    width: 100px;
+}
+
+.price_counter {
+    width: 120px;
+    margin: auto;
+
+    display: grid;
+    justify-content: space-between;
+    text-align: center;
+    gap: 20px;
+}
+
+.price_counter p {
+    margin: 0;
+}
+
+/*Basket*/
+.basket {
+    text-align: center;
+    margin: 10px;
 }

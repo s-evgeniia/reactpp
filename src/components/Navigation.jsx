@@ -1,11 +1,14 @@
 import React from 'react';
 import {NAVIGATION} from "../settings";
 
-const Navigation = () => {
+const Navigation = ({onChangePage}) => {
+    const changePage = (id) => {
+        onChangePage(id)
+    }
     return (
         <nav className="navigation">
             <ul>
-                {NAVIGATION.map((i) => (<li key={i}>{i}</li>))}
+                {NAVIGATION.map(({id}) => (<li key={id} onClick={() => changePage(id)}>{id}</li>))}
             </ul>
         </nav>
     );
