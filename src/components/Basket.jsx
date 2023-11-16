@@ -1,7 +1,7 @@
 import React from 'react';
 import ItemInBasket from "./ItemInBasket";
 
-const Basket = ({basket, onRemove}) => {
+const Basket = ({basket, onRemove, updateCounter}) => {
     if (!basket.length) {
         return (
             <h2 style={{textAlign: 'center', marginTop: '10px'}}>
@@ -22,6 +22,7 @@ const Basket = ({basket, onRemove}) => {
                     price={item.price}
                     count={item.count}
                     onRemove={onRemove}
+                    updateCounter={(newValue) => updateCounter(item, newValue)}
                 />
             ))}
         </div>

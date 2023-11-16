@@ -1,7 +1,6 @@
 import React from 'react';
 
-const ItemInBasket = ({item, title, description, url, count, price, onRemove}) => {
-    const [counter, setCounter] = React.useState(count)
+const ItemInBasket = ({item, title, description, url, count, price, onRemove, updateCounter}) => {
     return (
         <div className="basketItem">
             <img src={url} width="90px" height="110px" alt={description}/>
@@ -13,18 +12,18 @@ const ItemInBasket = ({item, title, description, url, count, price, onRemove}) =
             <div className="counter">
                 <button
                     type="button"
-                    onClick={() => setCounter(counter - 1)}
-                    disabled={counter === 1}
+                    onClick={() => updateCounter(count - 1)}
+                    disabled={count === 1}
                 > - </button>
-                <p>{counter}</p>
+                <p>{count}</p>
                 <button
                     type="button"
-                    onClick={() => setCounter(counter + 1)}
+                    onClick={() => updateCounter(count + 1)}
                 > + </button>
             </div>
             <div className="price_counter">
                 <button type="button" onClick={() => onRemove(item)}>delete</button>
-                <p>Total Price: <b>{price*counter} €</b></p>
+                <p>Total Price: <b>{price*count} €</b></p>
             </div>
         </div>
     );

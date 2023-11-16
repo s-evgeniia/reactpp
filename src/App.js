@@ -18,7 +18,7 @@ function App() {
     const addToBasket = (item) => {
         const {title, count} = item;
         let cond = basket.some(function (e){
-            return e.title == title
+            return e.title === title
         })
         if (cond){
             const findItem = basket.find(el => el.title === title)
@@ -43,6 +43,12 @@ function App() {
         console.log(basket)
     }
 
+    function updateCounter(item, newCounterValue) {
+        item.count = newCounterValue
+        let basketCopy = [...basket] // doesn't work if using same instance
+        setBasket(basketCopy)
+    }
+
     const getPage = (route) => {
         switch (route) {
             case AppRoute.Main:
@@ -61,7 +67,7 @@ function App() {
                     </>
             case AppRoute.Basket:
                 return <>
-                        <Basket basket={basket} onRemove={removeItem}/>
+                        <Basket basket={basket} onRemove={removeItem} updateCounter={updateCounter}/>
                     </>
             default:
                 return null;
