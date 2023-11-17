@@ -2,36 +2,10 @@ body {
     margin: 0;
     padding: 0;
 }
-/*Navigation Bar*/
-.navigation {
-    font-weight: bold;
-    border-bottom: teal solid 2px;
-    margin-bottom: 15px;
-    color: teal;
-}
-
-.navigation ul {
-    display: flex;
-    justify-content: space-around;
-
-    list-style: none;
-    width: auto;
-
-    margin: 15px;
-    padding: 0;
-
-    cursor: pointer;
-}
 
 /*Item Card Style*/
-.item_card h3,
-.item_card p {
-    margin: 0;
-    text-align: center;
-}
-
 .item_card {
-    width: 120px;
+    width: 150px;
     height: auto;
 
     padding: 10px;
@@ -43,6 +17,16 @@ body {
     display: grid;
     gap: 5px;
     justify-content: center;
+}
+
+.item_card h3,
+.item_card p {
+    margin: 0;
+    text-align: center;
+}
+
+.item_card img {
+    margin: auto;
 }
 
 /*Items List Style*/
@@ -60,6 +44,15 @@ button {
     border-radius: 5px;
     cursor: pointer;
 }
+
+button:hover {
+    background: rgba(0, 128, 128, 0.05);
+}
+button:active {
+    background: white;
+}
+
+
 
 /*Modal*/
 .modal {
@@ -134,4 +127,47 @@ button {
 .basket {
     text-align: center;
     margin: 10px;
+}
+
+/*Filtered Button*/
+.filter_btns {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+.filter_btn {
+    width: 70px;
+    height: 35px;
+}
+
+.filter_btn:focus {
+    color: rgb(0, 128, 128);
+    background: #ffffff;
+}
+
+/*Navigation Bar*/
+.navigation {
+    font-weight: bold;
+    border-bottom: teal solid 2px;
+    margin-bottom: 15px;
+    color: teal;
+}
+
+.navigation ul {
+    display: flex;
+    justify-content: space-around;
+
+    list-style: none;
+    width: auto;
+
+    margin: 15px;
+    padding: 0;
+
+    cursor: pointer;
+}
+
+.navigation li:active,
+.navigation li:hover {
+    color: rgba(0, 128, 128, 0.6);
 }

@@ -14,5 +14,7 @@ export const TIMEOUT = 300;
 
 export const AppRoute = {
     Main: 'main',
-    Basket: 'basket'
+    Basket: 'basket',
+    Women: 'women',
+    Men: 'men'
 }

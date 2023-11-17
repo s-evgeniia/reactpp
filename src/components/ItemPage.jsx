@@ -12,7 +12,7 @@ const ItemPage = ({showItem, visible, setVisible, onAddToBasket}) => {
         <div className={`modal ${visible ? 'active' : ''}`} onClick={() => setVisible(false) & setCount(1)}>
             <div  className="modalContent" onClick={(e) => e.stopPropagation()}>
                    <h2>{showItem.title}</h2>
-                   <img src={showItem.url} alt={showItem.description} height='300px' width='220px' />
+                   <img src={showItem.url} alt={showItem.description} height='300px' width='auto' />
                    <p>{showItem.description}</p>
                    <p>Price: {showItem.price} €</p>
                    <div>

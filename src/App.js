@@ -11,6 +11,10 @@ function App() {
     const [modal, setModal] = React.useState(false);
     const [basket, setBasket] = React.useState([]);
     const [page, setPage] = React.useState(AppRoute.Main)
+
+    const mItems = [...items].filter((i) => i.gender !== 'female')
+    const wItems = [...items].filter((i) => i.gender !== 'male')
+
     const showMore = (item) => {
         setShowItem(item)
         setModal(true)
@@ -33,6 +37,10 @@ function App() {
                 return setPage(AppRoute.Basket)
             case 'Main':
                 return setPage(AppRoute.Main)
+            case 'Women':
+                return setPage(AppRoute.Women)
+            case 'Men':
+                return setPage(AppRoute.Men)
             default:
                 return setPage(AppRoute.Main)
         }
@@ -69,6 +77,34 @@ function App() {
                 return <>
                         <Basket basket={basket} onRemove={removeItem} updateCounter={updateCounter}/>
                     </>
+            case AppRoute.Women:
+                return <>
+                    <ItemsList
+                        items={wItems}
+                        onShowItem={showMore}
+                        onBuyClick={addToBasket}
+                    />
+                    <ItemPage
+                        showItem={showItem}
+                        visible={modal}
+                        setVisible={setModal}
+                        onAddToBasket={addToBasket}
+                    />
+                </>
+            case AppRoute.Men:
+                return <>
+                    <ItemsList
+                        items={mItems}
+                        onShowItem={showMore}
+                        onBuyClick={addToBasket}
+                    />
+                    <ItemPage
+                        showItem={showItem}
+                        visible={modal}
+                        setVisible={setModal}
+                        onAddToBasket={addToBasket}
+                    />
+                </>
             default:
                 return null;
         }
