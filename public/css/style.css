@@ -52,8 +52,6 @@ button:active {
     background: white;
 }
 
-
-
 /*Modal*/
 .modal {
     position: fixed;
@@ -127,6 +125,21 @@ button:active {
 .basket {
     text-align: center;
     margin: 10px;
+}
+.basket_container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.total_price {
+    width: 35%;
+    height: 18px;
+
+    border: teal solid 2px;
+    border-radius: 5px;
+
+    padding: 26px;
+    margin: 5px;
 }
 
 /*Filtered Button*/

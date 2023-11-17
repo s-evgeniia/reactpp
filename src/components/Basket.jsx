@@ -9,22 +9,35 @@ const Basket = ({basket, onRemove, updateCounter}) => {
             </h2>
         )
     }
+    const totalPrice = () => {
+        let totalCost = 0
+        for (let i = 0; i < basket.length; i ++) {
+            totalCost = totalCost + basket[i].price*basket[i].count
+        }
+        return (totalCost)
+    }
+
     return (
         <div className="basket">
             <h2>My Basket</h2>
-            {basket.map((item) => (
-                <ItemInBasket
-                    item={item}
-                    key={item.id-Math.random()}
-                    title={item.title}
-                    url={item.url}
-                    description={item.description}
-                    price={item.price}
-                    count={item.count}
-                    onRemove={onRemove}
-                    updateCounter={(newValue) => updateCounter(item, newValue)}
-                />
-            ))}
+            <div className="basket_container">
+                <div>
+                    {basket.map((item) => (
+                        <ItemInBasket
+                            item={item}
+                            key={item.id-Math.random()}
+                            title={item.title}
+                            url={item.url}
+                            description={item.description}
+                            price={item.price}
+                            count={item.count}
+                            onRemove={onRemove}
+                            updateCounter={(newValue) => updateCounter(item, newValue)}
+                        />
+                    ))}
+                </div>
+                <p className="total_price"><b>Total price:</b> {totalPrice()} €</p>
+            </div>
         </div>
     );
 };
