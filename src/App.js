@@ -15,8 +15,6 @@ function App() {
     const mItems = [...items].filter((i) => i.gender !== 'female')
     const wItems = [...items].filter((i) => i.gender !== 'male')
 
-   /* useEffect(() => {
-        setBasket(basket)
     const showMore = (item) => {
         setShowItem(item)
         setModal(true)
