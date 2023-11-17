@@ -7,9 +7,12 @@ import Basket from "./components/Basket";
 import {AppRoute} from "./settings";
 
 function App() {
+
     const [showItem, setShowItem] = React.useState([]);
     const [modal, setModal] = React.useState(false);
+
     const [basket, setBasket] = React.useState([]);
+
     const [page, setPage] = React.useState(AppRoute.All_Items)
 
     const mItems = [...items].filter((i) => i.gender !== 'female')
@@ -28,6 +31,7 @@ function App() {
         if (cond){
             const findItem = basket.find(el => el.title === title)
             findItem.count = findItem.count + count
+            setBasket([...basket])
         }else {
             setBasket([...basket, item])
         }
@@ -53,8 +57,7 @@ function App() {
 
     function updateCounter(item, newCounterValue) {
         item.count = newCounterValue
-        let basketCopy = [...basket] // doesn't work if using same instance
-        setBasket(basketCopy)
+        setBasket([...basket])
     }
 
     const getPage = (route) => {
