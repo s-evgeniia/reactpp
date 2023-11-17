@@ -1,5 +1,5 @@
 export const NAVIGATION = [{
-    'id':'Main'
+    'id':'All Items'
 }, {
     'id':'Women'
 }, {
@@ -13,7 +13,7 @@ export const NAVIGATION = [{
 export const TIMEOUT = 300;
 
 export const AppRoute = {
-    Main: 'main',
+    All_Items: 'main',
     Basket: 'basket',
     Women: 'women',
     Men: 'men'

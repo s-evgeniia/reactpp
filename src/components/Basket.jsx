@@ -4,7 +4,7 @@ import ItemInBasket from "./ItemInBasket";
 const Basket = ({basket, onRemove, updateCounter}) => {
     if (!basket.length) {
         return (
-            <h2 style={{textAlign: 'center', marginTop: '10px'}}>
+            <h2 style={{textAlign: 'center'}}>
                 Your basket is empty!
             </h2>
         )

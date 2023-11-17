@@ -1,13 +1,22 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {TIMEOUT} from "../settings";
 
-const ItemPage = ({showItem, visible, setVisible, onAddToBasket}) => {
+const ItemPage = ({showItem, visible, setVisible, onAddToBasket, basket}) => {
     const [count, setCount] = React.useState(1)
+
+    const [bought, setBought] = React.useState(basket.some(function (e) {
+        return e.url === showItem.url
+    }))
+
     const addToBasket = (showItem, count) => {
         const newItemsInBasket = {...showItem, count: count}
         onAddToBasket(newItemsInBasket)
-        setTimeout(() => {setVisible(false)}, TIMEOUT)
+        setBought(true)
+        setCount(1)
+        /*setTimeout(() => {setVisible(false)}, TIMEOUT)*/
     }
+    const itemsInBasket = basket.find(el => el.url === showItem.url)
+
     return (
         <div className={`modal ${visible ? 'active' : ''}`} onClick={() => setVisible(false) & setCount(1)}>
             <div  className="modalContent" onClick={(e) => e.stopPropagation()}>
@@ -27,13 +36,26 @@ const ItemPage = ({showItem, visible, setVisible, onAddToBasket}) => {
                            onClick={() => setCount(count + 1)}
                        > + </button>
                    </div>
-                   <button
-                       type="button"
-                       onClick={() => addToBasket(showItem, count)}
-                       style={{'height': '25px', 'width': '130px'}}
-                   >
-                       add to basket
-                   </button>
+                {bought ?
+                    <>
+                        <p>{itemsInBasket.count} {itemsInBasket.count === 1 ? 'Item in Basket' : 'Items in Basket'}</p>
+                        <button
+                            type="button"
+                            onClick={() => addToBasket(showItem, count)}
+                            style={{'height': '25px', 'width': '130px'}}
+                        >
+                            add more
+                        </button>
+                    </>
+                    :<button
+                            type="button"
+                            onClick={() => addToBasket(showItem, count)}
+                            style={{'height': '25px', 'width': '130px'}}
+                    >
+                        add to basket
+                    </button>
+                }
+
             </div>
         </div>
     );

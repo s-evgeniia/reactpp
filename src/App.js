@@ -1,6 +1,6 @@
 import Navigation from "./components/Navigation";
 import ItemsList from "./components/ItemsList";
-import React from "react";
+import React, {useEffect} from "react";
 import {items} from "./data";
 import ItemPage from "./components/ItemPage";
 import Basket from "./components/Basket";
@@ -10,17 +10,20 @@ function App() {
     const [showItem, setShowItem] = React.useState([]);
     const [modal, setModal] = React.useState(false);
     const [basket, setBasket] = React.useState([]);
-    const [page, setPage] = React.useState(AppRoute.Main)
+    const [page, setPage] = React.useState(AppRoute.All_Items)
 
     const mItems = [...items].filter((i) => i.gender !== 'female')
     const wItems = [...items].filter((i) => i.gender !== 'male')
 
+   /* useEffect(() => {
+        setBasket(basket)
     const showMore = (item) => {
         setShowItem(item)
         setModal(true)
     }
     const addToBasket = (item) => {
         const {title, count} = item;
+
         let cond = basket.some(function (e){
             return e.title === title
         })
@@ -36,19 +39,18 @@ function App() {
             case 'Basket':
                 return setPage(AppRoute.Basket)
             case 'Main':
-                return setPage(AppRoute.Main)
+                return setPage(AppRoute.All_Items)
             case 'Women':
                 return setPage(AppRoute.Women)
             case 'Men':
                 return setPage(AppRoute.Men)
             default:
-                return setPage(AppRoute.Main)
+                return setPage(AppRoute.All_Items)
         }
     }
 
     const removeItem = (item) => {
         setBasket(basket.filter(i => i.id !== item.id))
-        console.log(basket)
     }
 
     function updateCounter(item, newCounterValue) {
@@ -59,18 +61,20 @@ function App() {
 
     const getPage = (route) => {
         switch (route) {
-            case AppRoute.Main:
+            case AppRoute.All_Items:
                 return <>
                     <ItemsList
                         items={items}
                         onShowItem={showMore}
                         onBuyClick={addToBasket}
+                        basket={basket}
                     />
                     <ItemPage
                         showItem={showItem}
                         visible={modal}
                         setVisible={setModal}
                         onAddToBasket={addToBasket}
+                        basket={basket}
                     />
                     </>
             case AppRoute.Basket:
@@ -83,12 +87,14 @@ function App() {
                         items={wItems}
                         onShowItem={showMore}
                         onBuyClick={addToBasket}
+                        basket={basket}
                     />
                     <ItemPage
                         showItem={showItem}
                         visible={modal}
                         setVisible={setModal}
                         onAddToBasket={addToBasket}
+                        basket={basket}
                     />
                 </>
             case AppRoute.Men:
@@ -97,12 +103,14 @@ function App() {
                         items={mItems}
                         onShowItem={showMore}
                         onBuyClick={addToBasket}
+                        basket={basket}
                     />
                     <ItemPage
                         showItem={showItem}
                         visible={modal}
                         setVisible={setModal}
                         onAddToBasket={addToBasket}
+                        basket={basket}
                     />
                 </>
             default:

@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import ItemCard from "./ItemCard";
 import {types} from "../data";
 
-const ItemsList = ({items, onShowItem, onBuyClick}) => {
+const ItemsList = ({items, onShowItem, onBuyClick, basket}) => {
     const [filtered, setFiltered] = React.useState(items)
 
     useEffect(() => {
@@ -31,6 +31,7 @@ const ItemsList = ({items, onShowItem, onBuyClick}) => {
                     onShowItem={onShowItem}
                     item={item}
                     onBuyClick={onBuyClick}
+                    basket={basket}
                 />))}
             </div>
 
@@ -41,20 +42,3 @@ const ItemsList = ({items, onShowItem, onBuyClick}) => {
 export default ItemsList;
 
 
-/*
-  function itemsGenderFilter(gender) {
-        if (gender === 'all') {
-            setFiltered(firstFilt)
-        }
-        else {
-            let filteredItems = [...firstFilt].filter( item => item.gender === gender)
-            setFiltered(filteredItems)
-        }
-    }
-{types.map(({id, title}) => (<><input type='checkbox' id={id} onChange={() => itemsTypeFilter(id)} /><lable for={id}>{title}</lable></>))}
-<div>
-    <button type='button' onClick={() => itemsGenderFilter('all')} >All</button>
-    <button type='button' onClick={() => itemsGenderFilter('male')} >Male</button>
-    <button type='button' onClick={() => itemsGenderFilter('female')} >Female</button>
-    <button type='button' onClick={() => itemsGenderFilter('unisex')} >Unisex</button>
-</div>*/
