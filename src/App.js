@@ -1,6 +1,6 @@
 import Navigation from "./components/Navigation";
 import ItemsList from "./components/ItemsList";
-import React, {useEffect} from "react";
+import React from "react";
 import {items} from "./data";
 import ItemPage from "./components/ItemPage";
 import Basket from "./components/Basket";
@@ -9,7 +9,6 @@ import {AppRoute} from "./settings";
 function App() {
 
     const [showItem, setShowItem] = React.useState([]);
-    const [modal, setModal] = React.useState(false);
 
     const [basket, setBasket] = React.useState([]);
 
@@ -19,8 +18,8 @@ function App() {
     const wItems = [...items].filter((i) => i.gender !== 'male')
 
     const showMore = (item) => {
+        changePage('Item_Page')
         setShowItem(item)
-        setModal(true)
     }
     const addToBasket = (item) => {
         const {title, count} = item;
@@ -46,6 +45,8 @@ function App() {
                 return setPage(AppRoute.Women)
             case 'Men':
                 return setPage(AppRoute.Men)
+            case 'Item_Page':
+                return setPage(AppRoute.Item_Page)
             default:
                 return setPage(AppRoute.All_Items)
         }
@@ -67,15 +68,8 @@ function App() {
                     <ItemsList
                         items={items}
                         onShowItem={showMore}
-                        onBuyClick={addToBasket}
                         basket={basket}
-                    />
-                    <ItemPage
-                        showItem={showItem}
-                        visible={modal}
-                        setVisible={setModal}
-                        onAddToBasket={addToBasket}
-                        basket={basket}
+                        onChange={changePage}
                     />
                     </>
             case AppRoute.Basket:
@@ -87,15 +81,8 @@ function App() {
                     <ItemsList
                         items={wItems}
                         onShowItem={showMore}
-                        onBuyClick={addToBasket}
                         basket={basket}
-                    />
-                    <ItemPage
-                        showItem={showItem}
-                        visible={modal}
-                        setVisible={setModal}
-                        onAddToBasket={addToBasket}
-                        basket={basket}
+                        onChange={changePage}
                     />
                 </>
             case AppRoute.Men:
@@ -103,15 +90,17 @@ function App() {
                     <ItemsList
                         items={mItems}
                         onShowItem={showMore}
-                        onBuyClick={addToBasket}
                         basket={basket}
+                        onChange={changePage}
                     />
+                </>
+            case AppRoute.Item_Page:
+                return <>
                     <ItemPage
                         showItem={showItem}
-                        visible={modal}
-                        setVisible={setModal}
                         onAddToBasket={addToBasket}
                         basket={basket}
+                        changePage={changePage}
                     />
                 </>
             default:

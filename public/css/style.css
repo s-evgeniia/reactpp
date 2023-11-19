@@ -29,6 +29,10 @@ body {
     margin: auto;
 }
 
+.notification_b {
+    color: darkred;
+}
+
 /*Items List Style*/
 .items_list {
     display: flex;
@@ -54,17 +58,6 @@ button:active {
 
 /*Modal*/
 .modal {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-
-    display: none;
-    background: rgba(0,0,0,0.5)
-}
-
-.modal.active {
     display: flex;
     justify-content: center;
 

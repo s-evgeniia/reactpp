@@ -1,7 +1,6 @@
-import React, {useEffect} from 'react';
-import {TIMEOUT} from "../settings";
+import React from 'react';
 
-const ItemPage = ({showItem, visible, setVisible, onAddToBasket, basket}) => {
+const ItemPage = ({showItem, onAddToBasket, basket, changePage}) => {
     const [count, setCount] = React.useState(1)
 
     const [bought, setBought] = React.useState(basket.some(function (e) {
@@ -11,15 +10,15 @@ const ItemPage = ({showItem, visible, setVisible, onAddToBasket, basket}) => {
     const addToBasket = (showItem, count) => {
         const newItemsInBasket = {...showItem, count: count}
         onAddToBasket(newItemsInBasket)
-        setBought(true)
         setCount(1)
-        /*setTimeout(() => {setVisible(false)}, TIMEOUT)*/
+        setBought(true)
     }
+
     const itemsInBasket = basket.find(el => el.url === showItem.url)
 
     return (
-        <div className={`modal ${visible ? 'active' : ''}`} onClick={() => setVisible(false) & setCount(1)}>
-            <div  className="modalContent" onClick={(e) => e.stopPropagation()}>
+        <div className="modal">
+            <div  className="modalContent">
                    <h2>{showItem.title}</h2>
                    <img src={showItem.url} alt={showItem.description} height='300px' width='auto' />
                    <p>{showItem.description}</p>
@@ -38,19 +37,24 @@ const ItemPage = ({showItem, visible, setVisible, onAddToBasket, basket}) => {
                    </div>
                 {bought ?
                     <>
-                        <p>{itemsInBasket.count} {itemsInBasket.count === 1 ? 'Item in Basket' : 'Items in Basket'}</p>
                         <button
                             type="button"
                             onClick={() => addToBasket(showItem, count)}
-                            style={{'height': '25px', 'width': '130px'}}
                         >
                             add more
                         </button>
-                    </>
-                    :<button
+                        <p className="notification_b"> {itemsInBasket.count} in basket</p>
+                        <button
                             type="button"
-                            onClick={() => addToBasket(showItem, count)}
-                            style={{'height': '25px', 'width': '130px'}}
+                            onClick={() => changePage('Basket')}
+                        >
+                            go to basket
+                        </button>
+
+                    </>
+                    : <button
+                        type="button"
+                        onClick={() => addToBasket(showItem, count)}
                     >
                         add to basket
                     </button>

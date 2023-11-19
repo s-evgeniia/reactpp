@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import ItemCard from "./ItemCard";
 import {types} from "../data";
 
-const ItemsList = ({items, onShowItem, onBuyClick, basket}) => {
+const ItemsList = ({items, onShowItem, basket, onChange}) => {
     const [filtered, setFiltered] = React.useState(items)
 
     useEffect(() => {
@@ -30,8 +30,8 @@ const ItemsList = ({items, onShowItem, onBuyClick, basket}) => {
                     price={item.price}
                     onShowItem={onShowItem}
                     item={item}
-                    onBuyClick={onBuyClick}
                     basket={basket}
+                    changePage={onChange}
                 />))}
             </div>
 
