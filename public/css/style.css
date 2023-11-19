@@ -3,6 +3,22 @@ body {
     padding: 0;
 }
 
+/*Filtered Button*/
+.filter_btns {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+.filter_btn {
+    width: 70px;
+    height: 35px;
+}
+
+.filter_btn:focus {
+    color: rgb(0, 128, 128);
+    background: #ffffff;
+}
 /*Item Card Style*/
 .item_card {
     width: 150px;
@@ -56,28 +72,54 @@ button:active {
     background: white;
 }
 
-/*Modal*/
-.modal {
-    display: flex;
-    justify-content: center;
+/*Item Page*/
+.item_page {
+    margin: 20px;
 
-    align-items: center;
+    display: flex;
+    justify-content: space-between;
 }
 
-.modalContent {
-    padding: 25px;
-    background: white;
-    border-radius: 15px;
-
-    text-align: center;
+.item_page p {
+    font-size: 20px;
+    margin: 0;
 }
 
-.modalContent div {
-    display: flex;
-    justify-content: center;
+.item_page_flex {
+    display: grid;
     gap: 4px;
 
-    margin-bottom: 20px;
+    margin: auto;
+    border: teal solid 2px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.item_page_flex img {
+    margin: auto;
+    padding: 10px;
+}
+
+.item_page_btns {
+    text-align: center;
+    padding: 30px;
+    gap: 20px;
+
+    height: 178px;
+}
+
+.page_cont_btn {
+    height: 30px;
+    width: 140px;
+}
+
+.item_page_counter {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+
+    margin: auto;
+    margin-bottom: 10px;
 }
 
 /*Basket Item*/
@@ -135,22 +177,7 @@ button:active {
     margin: 5px;
 }
 
-/*Filtered Button*/
-.filter_btns {
-    display: flex;
-    justify-content: space-around;
-    margin: 20px;
-}
 
-.filter_btn {
-    width: 70px;
-    height: 35px;
-}
-
-.filter_btn:focus {
-    color: rgb(0, 128, 128);
-    background: #ffffff;
-}
 
 /*Navigation Bar*/
 .navigation {
