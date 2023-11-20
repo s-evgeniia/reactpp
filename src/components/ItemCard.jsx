@@ -5,10 +5,6 @@ const ItemCard = ({description, url, price, item, onShowItem, basket}) => {
         return e.url === url
     })
 
-    const showMore = (item) => {
-        onShowItem(item)
-    }
-
     const itemsInBasket = basket.find(el => el.url === url)
 
     return (
@@ -23,7 +19,7 @@ const ItemCard = ({description, url, price, item, onShowItem, basket}) => {
                 : ''
             }
 
-            <button onClick={() => showMore(item)} type="button">view more</button>
+            <button onClick={() => onShowItem(item)} type="button">view more</button>
         </div>
     );
 };
