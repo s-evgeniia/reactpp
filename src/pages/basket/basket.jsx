@@ -1,5 +1,5 @@
 import React from 'react';
-import ItemInBasket from "./ItemInBasket";
+import ItemInBasket from "../../entities/item-in-basket/item-in-basket";
 
 const Basket = ({basket, onRemove, updateCounter}) => {
     if (!basket.length) {

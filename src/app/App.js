@@ -1,10 +1,23 @@
-import Navigation from "./components/Navigation";
-import ItemsList from "./components/ItemsList";
+<<<<<<< Updated upstream
+import Navigation from "../widgets/navigation/navigation";
+import ItemsList from "../pages/items-list/items-list";
 import React from "react";
-import {items} from "./data";
-import ItemPage from "./components/ItemPage";
-import Basket from "./components/Basket";
-import {AppRoute} from "./settings";
+import {items} from "../data";
+import ItemPage from "../pages/item/item-page";
+import Basket from "../pages/basket/basket";
+import {AppRoute} from "../settings";
+import "./style.css"
+
+=======
+import Navigation from "../components/Navigation";
+import ItemsList from "../components/ItemsList";
+import React from "react";
+import {items} from "../data";
+import ItemPage from "../components/ItemPage";
+import Basket from "../components/Basket";
+import {AppRoute} from "../settings";
+import "./style.css"
+>>>>>>> Stashed changes
 
 function App() {
 

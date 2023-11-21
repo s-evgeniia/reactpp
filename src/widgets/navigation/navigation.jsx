@@ -1,5 +1,5 @@
 import React from 'react';
-import {NAVIGATION} from "../settings";
+import {NAVIGATION} from "../../settings";
 
 const Navigation = ({onChangePage}) => {
     const changePage = (id) => {
